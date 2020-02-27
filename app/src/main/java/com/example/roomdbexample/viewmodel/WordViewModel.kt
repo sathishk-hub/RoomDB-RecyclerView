@@ -35,7 +35,7 @@ class WordViewModel(application: Application) : AndroidViewModel(application) {
     fun insert(word: Word) =  viewModelScope.launch {
         repository.insert(word)
     }
-    fun delete(id:Int?) =  viewModelScope.launch {
+    fun delete(id:Word) =  viewModelScope.launch {
         repository.delete(id)
     }
 }

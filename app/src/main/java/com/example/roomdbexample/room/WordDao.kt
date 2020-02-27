@@ -15,8 +15,9 @@ interface WordDao {
     @Query("DELETE FROM word_table")
     suspend fun deleteAll()
 
-    @Query("DELETE FROM word_table WHERE id = :Id")
-    suspend fun delete(Id:Int?)
+    //@Query("DELETE FROM word_table WHERE id = :Id")
+    @Delete
+    suspend fun delete(word: Word)
 
     @Query("SELECT * from word_table ORDER BY word ASC")
     fun getAlphabetizedWords():LiveData<List<Word>>

@@ -8,9 +8,9 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "word_table")
 class Word (
 
-    @PrimaryKey(autoGenerate = true) val id:Int?= null,
+    @PrimaryKey(autoGenerate = true) val id:Int?=null,
     @NonNull@ColumnInfo(name = "word")
-     val Word: String
+     val name: String
 
 
 )

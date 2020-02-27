@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerview)
-        val adapter = WordListAdapter(this,{ word : Word -> WordItemClicked(word)})
+        val adapter = WordListAdapter(this, { word: Word -> WordItemClicked(word) })
         recyclerView.adapter = adapter
 
         recyclerView.layoutManager = LinearLayoutManager(this)
@@ -51,18 +51,20 @@ class MainActivity : AppCompatActivity() {
 
         if (requestCode == newWordActivityRequestCode && resultCode == Activity.RESULT_OK) {
             data?.getStringExtra(addWord.EXTRA_REPLY)?.let {
-                val word = Word(Word=it)
+                val word = Word(name=it)
                 wordViewModel.insert(word)
             }
         } else {
             Toast.makeText(
                 applicationContext,
                 R.string.empty_not_saved,
-                Toast.LENGTH_LONG).show()
+                Toast.LENGTH_LONG
+            ).show()
         }
     }
+
     fun WordItemClicked(wordItem: Word) {
-        wordViewModel.delete(wordItem.id)
+        wordViewModel.delete(wordItem)
 
 
     }
